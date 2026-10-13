@@ -1,0 +1,15 @@
+# .mint.toml — mint configuration. This file is fully OPTIONAL: every default is
+# compiled into mint, so an empty file is valid and changes nothing. Add a key only
+# to set a value that differs from the default.
+#
+# Config reference (every key, level, and default): https://github.com/leeovery/mint
+# AI-assisted setup (inspects your project and proposes config): run `mint setup`
+
+diff_exclude = ['tests/**', '.github/**']
+
+[release.hooks]
+pre_tag = [
+    'composer validate --strict',
+    'composer pint-sniff',
+    'composer pest',
+]
